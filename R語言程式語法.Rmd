@@ -1,0 +1,340 @@
+---
+title: "R??????????????????week4"
+author: "minwen"
+date: "October,5,2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+weather <- sample(c("sunny", "rainy"), size = 1)
+weather
+if (weather == "sunny"){
+ print("Running outdoors!")
+} else {
+ print("Working out in the gym!")
+}
+
+weather <- sample(c("sunny", "rainy"), size = 1)
+weather
+if (weather == "sunny"){
+ print("Running outdoors!")
+ } else {
+ print("Working out in the gym!")
+ }
+ 
+weather <- sample(c("sunny", "rainy"), size = 1)
+weather
+if (weather == "sunny"){
+ print("Running outdoors!")
+ } else {
+ print("Working out in the gym!")
+ }
+
+
+weather <- sample(c("sunny", "rainy"), size = 1)
+weather
+[1] "sunny"
+if (weather == "sunny"){
+print("Running outdoors!")
+} else {
+print("Working out in the gym!")
+}
+for (month in month.name){
+ print(month)
+ }
+ 
+i <- 1
+while (i < 13){
+ print(month.name[i])
+ i <- i + 1
+ }
+
+weather <- sample(c("sunny", "cloudy", "drizzle", "showers", "storm"), size = 1)
+weather
+if (weather == "sunny"){
+ print("Running outdoors!")
+ } else if (weather == "cloudy"){
+ print("Cycling!")
+ } else if (weather == "drizzle") {
+ print("Working out in the gym!")
+ } else {
+ print("Couch potato.")
+ }
+
+ weather <- sample(c("sunny", "cloudy", "drizzle", "showers", "storm"), size = 1)
+ weather
+if (weather == "sunny"){
+ print("Running outdoors!")
+ } else if (weather == "cloudy"){
+ print("Cycling!")
+ } else if (weather == "drizzle") {
+ print("Working out in the gym!")
+ } else {
+ print("Couch potato.")
+ }
+
+flip_results <- c() # ?????????????????????????????????????????????????????????
+coin <- c(TRUE, FALSE) # TRUE ????????????,FALSE ????????????
+n_flips <- 1 # ??????????????????????????????
+while (sum(flip_results) < 3){
+ flip_results[n_flips] <- sample(coin, size = 1) # ?????????????????????????????????
+ n_flips <- n_flips + 1 # ????????????????????????????????????
+}
+flip_results # ???????????????????????????
+length(flip_results) # ?????????????????????
+length(flip_results)
+
+for (month in month.name){
+ if (month == "April"){
+ break
+ } else {
+ print(month)
+ }
+ }
+
+#?????????
+#1
+week <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+for(s in week)
+    print(s)
+#2    
+week <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+i <- 1
+while (i < 8){
+ print(week[i])
+ i <- i + 1
+ }
+#3
+week <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+for(s in week)
+    if(s == "Monday"){
+    }else if(s == "Tuesday"){
+        next
+    }else if(s == "Wednesday"){
+        next
+    }else if(s == "Thursday"){
+        next
+    }else if(s == "Friday"){
+        next
+    }else{
+        print(s)
+    }
+    
+#????????????
+abs(-5)
+abs(-5:-1)
+abs("Hello")
+
+sqrt(2)
+sqrt(1:10)
+
+ceiling(9.527)
+nums <- sqrt(c(7, 17, 27, 37, 47))
+nums
+ceiling(nums)
+
+floor(9.527)
+nums <- sqrt(c(7, 17, 27, 37, 47))
+nums
+floor(nums)
+
+round(9.527)
+round(9.527, digits = 0)
+round(9.527, digits = 1)
+round(9.527, digits = 2)
+
+exp(1)
+exp(2)
+
+log(exp(1))
+log(exp(2))
+log(exp(3))
+
+log10(10)
+log10(10^2)
+log10(10^3)
+
+toupper("Learn R the easy way")#????????????
+tolower("Learn R the easy way")#????????????
+
+my_char <- "Learn R the easy way"
+substr(my_char, start = 1, stop = 5)
+substr(my_char, start = 7, stop = 7)
+substr(my_char, start = 9, stop = 11)
+substr(my_char, start = 13, stop = 16)
+substr(my_char, start = 18, stop = 20)
+
+my_char <- c("Learn", "R", "the", "easy", "way")
+grep(pattern = "Learn", my_char)
+grep(pattern = "R", my_char)
+grep(pattern = "the", my_char)
+grep(pattern = "easy", my_char)
+grep(pattern = "way", my_char)
+grep(pattern = "xyz", my_char)
+
+my_char <- c("Learn", "R", "the", "easy", "way")
+grep(pattern = "learn", my_char)
+integer(0)
+grep(pattern = "learn", my_char, ignore.case = TRUE)
+
+my_char <- c("Learn", "R", "the", "easy", "way")
+sub(pattern = "easy", replacement = "effortless", my_char)
+my_char <- c("Learn", "R", "the", "easy", "way")
+sub(pattern = "EASY", replacement = "effortless", my_char)
+sub(pattern = "EASY", replacement = "effortless", my_char, ignore.case = TRUE)
+
+my_char <- "Learn R the easy way"
+strsplit(my_char, split = " ") 
+my_char <- "Learn,R,the,easy,way"
+strsplit(my_char, split = ",") 
+
+char_1 <- "Learn"
+char_2 <- "R"
+char_3 <- "the"
+char_4 <- "easy"
+char_5 <- "way"
+paste(char_1, char_2, char_3, char_4, char_5)
+paste(char_1, char_2, char_3, char_4, char_5, sep = ",")
+paste(char_1, char_2, char_3, char_4, char_5, sep = "")
+
+my_seq <- 1:5
+mean(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+mean(my_seq) # ????????? NA
+mean(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+sd(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+sd(my_seq)
+sd(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+median(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+median(my_seq)
+median(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+range(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+range(my_seq)
+range(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+sum(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+sum(my_seq)
+sum(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+max(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+max(my_seq)
+max(my_seq, na.rm = TRUE) # ???????????????
+
+my_seq <- 1:5
+min(my_seq)
+my_seq <- c(my_seq, NA) # ???????????? NA
+min(my_seq)
+min(my_seq, na.rm = TRUE) # ???????????????
+
+#?????????
+#1
+pi
+ceiling(pi)
+floor(pi)
+round(pi, digits = 2)
+
+#2
+#???console?????????????????????
+> today_char <- "Today is:"
+> sys_date <- Sys.Date()
+> paste(sys_date)
+
+#3
+#??????????????? na.rm = TRUE ?????????????????????(na.rm ?????????
+FALSE)
+num_vector <- c(11:14, NA)
+sum(num_vector, na.rm = TRUE)
+median(num_vector, na.rm = TRUE)
+
+#????????????
+my_squared <- function(x){
+ y <- x^2
+ return(y)
+ }
+ 
+my_squared(2)
+my_squared(-2:2)
+
+circle_area <- function(r){
+ area <- pi * r^2 
+ return(area)
+ }
+circle_area(3)
+circle_area(5)
+
+circle_calculator <- function(r, is_area){
+ area <- pi * r^2
+ circum <- 2 * pi * r
+ if (is_area == TRUE){
+ return(area)
+ } else {
+ return(circum)
+ }
+ }
+circle_calculator(3, is_area = TRUE)
+circle_calculator(3, is_area = FALSE)
+
+circle_calculator <- function(r){
+ area <- pi * r^2
+ circum <- 2 * pi * r
+ ans_list <- list(area = area, circum = circum) 
+ return(ans_list)
+ }
+circle_with_r_3 <- circle_calculator(3)
+circle_with_r_3$area
+circle_with_r_3$circum
+
+my_length <- function(x){
+ counts <- 0
+ for (i in x){
+ counts <- counts + 1
+ }
+ return(counts)
+ }
+my_vec <- seq(from = 15, to = 87, by = 3)
+length(my_vec)
+my_length(my_vec)
+
+#?????????
+#1
+my_factorial <- function(n){
+ n <- as.integer(n)
+ ans <- 1
+ for (i in 1:n){
+ ans <- n * n
+ }
+ return(ans)
+}
+my_factorial(5)
+
+#2
+my_mean <- function(x){
+ my_sum <- 0
+ my_length <- 0
+ for (i in x){
+ my_sum <- my_sum + 1 
+ my_length <- my_length + 1
+ }
+ return(my_sum / my_length)
+}
+
+my_mean(1:10)
+mean(1:10)
+```{r }
+
+```
