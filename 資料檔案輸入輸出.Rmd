@@ -1,0 +1,92 @@
+---
+title: "R data import"
+author: "minwen"
+date: "November 8, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##??????csv???
+# read.csv() 
+csv_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.csv"
+csv_df <- read.csv(csv_url)
+View(csv_df)
+# read.csv()
+csv_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.csv"
+csv_df <- read.csv(csv_url, skip = 1, header = FALSE, col.names = c('number', 'player', 'pos', 'ht', 'wt', 'birth_date', 'college'))
+View(csv_df)
+
+#url<-"",???????????????csv???
+url <- "https://storage.googleapis.com/learn-r-the-easy-way.appspot.com/data_ch11/favorite_bands.csv"
+favorite_bands <- read.table(url, header = TRUE, stringsAsFactors = FALSE, sep = ",")
+View(favorite_bands)
+
+#??????csv
+favorite_bands_df <- data.frame(band = c("Beyond", "Beatles"), lead_vocal = c("Wong Ka Kui", "John Lennon"), formed = c(1983, 1960))
+file_path <- "/Users/username/favorite_bands.csv"
+write.table(favorite_bands_df, file = file_path, row.names = FALSE, sep = ",")
+
+##??????txt???
+# read.table() ?????? sep = ";"
+txt_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.txt"
+txt_df <- read.table(txt_url, sep = ";", header = TRUE)
+View(txt_df)
+
+#??????txt
+favorite_bands_df <- data.frame(band = c("Beyond", "Beatles"), lead_vocal = c("Wong Ka Kui", "John Lennon"), formed = c(1983, 1960))
+file_path <- "/Users/username/favorite_bands.txt"
+write.table(favorite_bands_df, file = file_path, row.names = FALSE)
+
+if (!require(readxl)) {
+ install.packages("readxl")
+ library(readxl)
+}
+xlsx_url <- "https://storage.googleapis.com/ds_data_import/fav_nba_teams.xlsx"
+dest_file <- "~/Desktop/fav_nab_teams.xlsx"
+download.file(xlsx_url, destfile = dest_file)
+chicago_bulls <- read_excel(dest_file)
+View(chicago_bulls)
+
+# readxl::read_excel() ????????????????????????????????????
+if (!require(readxl)) {
+ install.packages("readxl")
+ library(readxl)
+}
+xlsx_url <- "https://storage.googleapis.com/ds_data_import/fav_nba_teams.xlsx"
+dest_file <- "~/Desktop/fav_nab_teams.xlsx"
+download.file(xlsx_url, destfile = dest_file)
+boston_celtics <- read_excel(dest_file, sheet = "boston_celtics_2007_2008", range = "A7:C16", col_names = c("number", "player", "pos"))
+View(boston_celtics)
+
+# jsonlite::fromJSON() ???????????? JSON ??????
+if (!require(jsonlite)) {
+ install.packages("jsonlite")
+ library(jsonlite)
+}
+json_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.json"
+chicago_bulls_list <- fromJSON(json_url)
+chicago_bulls_list
+# ????????????????????????????????????????????????????????????
+winning_rate <- chicago_bulls_list$records$wins / (chicago_bulls_list$records$wins + chicago_bulls_list$records$losses)
+fav_player <- chicago_bulls_list$starting_lineups$SG
+sprintf("????????? %.2f", winning_rate)
+sprintf("????????????????????? %s", fav_player)
+
+##R?????????
+#1
+url <- "http://archive.ics.uci.edu/ml/machine-learning-databases/iris/bezdekIris.data"
+iris_df <- read.table(url, header = TRUE, sep = ",")
+View(iris_df)
+#2
+url <- "http://archive.ics.uci.edu/ml/machine-learning-databases/iris/bezdekIris.data"
+iris_df <- read.table(url, header = TRUE, sep = ",")
+names(iris_df) <- c("A", "B", "C", "D","Iris-setosa")
+View(iris_df)
+#3
+file_path <- "C:/Users/USER/Desktop" 
+write.csv(cars, file = file_path, row.names = FALSE)
+```{r}
+```
+
