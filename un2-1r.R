@@ -19,24 +19,24 @@ F
 True
 true
 
-8 > 7 # �P�_ 8 �O�_???�� 7
-8 < 7 # �P�_ 8 �O�_???�� 7
-8 >= 7 # �P�_ 8 �O�_???�󵥩� 7
-8 <= 7 # �P�_ 8 �O�_???�󵥩� 7
-8 == 7 # �P�_ 8 �O�_���� 7
-8 != 7 # �P�_ 8 �O�_������ 7
-7 %in% c(8, 7) # �P�_ 7 �O�_�]�t��???�� c(8, 7) ����
+8 > 7 # 判斷 8 是否???於 7
+8 < 7 # 判斷 8 是否???於 7
+8 >= 7 # 判斷 8 是否???於等於 7
+8 <= 7 # 判斷 8 是否???於等於 7
+8 == 7 # 判斷 8 是否等於 7
+8 != 7 # 判斷 8 是否不等於 7
+7 %in% c(8, 7) # 判斷 7 是否包含於???個 c(8, 7) 之中
 
 first_name <- "Tony"
 first_name
 class(first_name)
 
-sys_date <- Sys.Date() # �t��???��
-sys_date # �ݰ_�Ӹ�???�r�ۦP
+sys_date <- Sys.Date() # 系統???期
+sys_date # 看起來跟???字相同
 class(sys_date)
 
-sys_time <- Sys.time() # �t�ήɶ�
-sys_time # �ݰ_�Ӹ�???�r�ۦP
+sys_time <- Sys.time() # 系統時間
+sys_time # 看起來跟???字相同
 class(sys_time)
 
 my_height <- 170
@@ -66,11 +66,11 @@ is.logical("FALSE")
 is.character("TRUE")
 is.character(TRUE)
 
-inherits(Sys.Date(), what = "Date") # Sys.Date() �O???������
-inherits("1970-01-01", what = "Date") # "1970-01-01" �O???�r����
+inherits(Sys.Date(), what = "Date") # Sys.Date() 是???期類型
+inherits("1970-01-01", what = "Date") # "1970-01-01" 是???字類型
 
-inherits(Sys.time(), what = "POSIXct") # Sys.time() �O�ɶ�����
-inherits("1970-01-01 00:00:00", what = "POSIXct") # "1970-01-01 00:00:00" �O???�r����
+inherits(Sys.time(), what = "POSIXct") # Sys.time() 是時間類型
+inherits("1970-01-01 00:00:00", what = "POSIXct") # "1970-01-01 00:00:00" 是???字類型
 
 as.numeric(7L)
 as.numeric(TRUE)
@@ -103,8 +103,8 @@ as.character(Sys.time())
 
 as.Date("1970-01-01")
 
-sys_time <- Sys.time() # �t�ήɶ�
-sys_time # �ݰ_�Ӹ�???�r�ۦP
+sys_time <- Sys.time() # 系統時間
+sys_time # 看起來跟???字相同
 class(sys_time)
 sys_time <- Sys.time()
 as.integer(sys_time)
@@ -118,19 +118,19 @@ time_of_origin - 1
 time_of_origin_cst <- as.POSIXct("1970-01-01 08:00:00")
 as.integer(time_of_origin_cst)
 as.Date("1970/01/01")
-as.Date("01-01-1970") # �ഫ���~
-as.Date("01-01-1970", format = "%m-%d-%Y") # �ഫ���T
-as.Date("01/01/70") # ���O�w�]�榡�A�ഫ����
-as.Date("01/01/70", format = "%m/%d/%y") # �ഫ���T
+as.Date("01-01-1970") # 轉換錯誤
+as.Date("01-01-1970", format = "%m-%d-%Y") # 轉換正確
+as.Date("01/01/70") # 不是預設格式，轉換失敗
+as.Date("01/01/70", format = "%m/%d/%y") # 轉換正確
 
 as.POSIXct("1970-01-01 00:00:00")
 as.POSIXct("1970-01-01 00:00:00", tz = "GMT")
 
-sys_date <- Sys.Date() # �t��???��
-sys_date # �ݰ_�Ӹ�???�r�ۦP
+sys_date <- Sys.Date() # 系統???期
+sys_date # 看起來跟???字相同
 class(sys_date)
 sys_date <- Sys.Date()
-sys_date_char <- as.character(sys_date) # �гy???��???�r����
+sys_date_char <- as.character(sys_date) # 創造???個???字類型
 as.integer(sys_date)
 as.integer(sys_date_char)
 date_of_origin <- as.Date("1970-01-01")
@@ -141,8 +141,8 @@ date_of_origin
 date_of_origin + 1
 date_of_origin - 1
 sys_date <- Sys.Date()
-sys_date_char <- as.character(sys_date) # �гy???��???�r����
-sys_date - 1 # �Q�Ѫ�???��
+sys_date_char <- as.character(sys_date) # 創造???個???字類型
+sys_date - 1 # 昨天的???期
 sys_date_char - 1
 
 beyond_start <- as.Date("1983-12-31")
