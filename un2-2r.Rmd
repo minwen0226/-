@@ -1,7 +1,7 @@
 ---
 title: "HW2018-10-17"
 author: "minwen"
-date: "2018¦~10¤ë17¤é"
+date: "2018Â¦~10Â¤Ã«17Â¤Ã©"
 output: html_document
 ---
 
